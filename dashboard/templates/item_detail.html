@@ -1,0 +1,18 @@
+<h1>{{ item.name }}</h1>
+<!-- Display item details -->
+
+<h2>Reviews</h2>
+<ul>
+  {% for review in reviews %}
+    <li>{{ review.content }}</li>
+  {% empty %}
+    <li>No reviews yet.</li>
+  {% endfor %}
+</ul>
+
+<h2>Add a Review</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit Review</button>
+</form>
